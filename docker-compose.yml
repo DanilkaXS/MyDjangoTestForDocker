@@ -1,0 +1,41 @@
+version: '3.9'
+
+services:
+  web:
+    build: .
+    container_name: myproject_web
+    restart: always
+    command: gunicorn MySite.wsgi:application --bind 0.0.0.0:8000
+    volumes:
+      - .:/app
+    expose:
+      - "8000"
+    environment:
+      - VIRTUAL_HOST=shcoder-site.pp.ua
+      - LETSENCRYPT_HOST=shcoder-site.pp.ua
+      - LETSENCRYPT_EMAIL=navigatordj201@gmail.com
+    depends_on:
+      - db
+    networks:
+      - proxy_net
+      - default
+
+  db:
+    image: postgres:15
+    container_name: myproject_db
+    restart: always
+    environment:
+      POSTGRES_DB: myproject
+      POSTGRES_USER: myprojectuser
+      POSTGRES_PASSWORD: mysecretpassword
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    networks:
+      - default
+
+volumes:
+  postgres_data:
+
+networks:
+  proxy_net:
+    external: true
