@@ -12,9 +12,9 @@ services:
     expose:
       - "8000"
     environment:
-      - VIRTUAL_HOST=134.249.77.6
-      - LETSENCRYPT_HOST=example.com
-      - LETSENCRYPT_EMAIL=you@example.com
+      - VIRTUAL_HOST=shcoder-site.pp.ua
+      - LETSENCRYPT_HOST=shcoder-site.pp.ua
+      - LETSENCRYPT_EMAIL=navigatordj201@gmail.com
     depends_on:
       - db
     networks:
