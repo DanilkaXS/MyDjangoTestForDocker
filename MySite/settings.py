@@ -25,7 +25,12 @@ SECRET_KEY = 'django-insecure-w6zzl7z_w#1cbszf_p7+=ap5lni7mq*y8^nom9k&8k)bj(colz
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = [
+    "134.249.77.6",           # тимчасовий доступ по IP
+    "shcoder-site.pp.ua",      # твій домен
+    "www.shcoder-site.pp.ua"   # якщо використовуєш www
+]
+
 
 
 # Application definition
