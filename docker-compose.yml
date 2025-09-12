@@ -8,6 +8,7 @@ services:
     command: gunicorn MySite.wsgi:application --bind 0.0.0.0:8000
     volumes:
       - .:/app
+      - ./staticfiles:/app/staticfiles
     expose:
       - "8000"
     environment:
